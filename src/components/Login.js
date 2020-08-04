@@ -16,9 +16,10 @@ function Copyright() {
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
         Daniel J. Pomfret
-      </Link>{' '}
+      </Link>
+      {' '}
       {new Date().getFullYear()}
-      {'.'}
+      .
     </Typography>
   );
 }
@@ -54,11 +55,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 const Login = () => {
-
   const classes = useStyles();
-
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -87,11 +85,11 @@ const Login = () => {
             <Grid item xs>
               <Link href="#" variant="body2">
                 Forgot password?
-                </Link>
+              </Link>
             </Grid>
             <Grid item>
               <Link href="mailto:support@coly.uk" variant="body2">
-                {"Don't have an account?"}
+                Don&apos;t have an account?
               </Link>
             </Grid>
           </Grid>
@@ -102,7 +100,6 @@ const Login = () => {
       </Grid>
     </Grid>
   );
-}
-
+};
 
 export default Login;
