@@ -10,6 +10,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
+require('dotenv');
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -58,6 +60,8 @@ const useStyles = makeStyles((theme) => ({
 const Login = () => {
   const classes = useStyles();
 
+  const loginUrl = process.env.REACT_APP_API + '/auth/login';
+
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -70,7 +74,7 @@ const Login = () => {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <form method="post" className={classes.form} noValidate action="http://localhost:3002/auth/login">
+          <form method="post" className={classes.form} noValidate action={loginUrl}>
             <Button
               type="submit"
               fullWidth

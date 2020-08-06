@@ -5,6 +5,8 @@ import Cookies from 'universal-cookie';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard';
 
+require('dotenv');
+
 function App() {
   const [error, setError] = React.useState(null);
   const [isLoaded, setIsLoaded] = React.useState(false);
@@ -22,7 +24,7 @@ function App() {
     }
 
     if (cookies.get('token') !== undefined) {
-      fetch('http://localhost:3002/auth/authenticated', {
+      fetch(process.env.REACT_APP_API + '/auth/authenticated', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -48,7 +50,7 @@ function App() {
     } else {
       setIsLoaded(true);
     }
-  }, []);
+  }, [cookies, query.token]);
 
   if (error) {
     return <div>Error:{' '}{error.message}</div>;
